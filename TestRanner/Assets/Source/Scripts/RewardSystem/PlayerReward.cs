@@ -3,7 +3,7 @@ using EventBusSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStateMachine))]
-public class PlayerReward : MonoBehaviour, IRewardRaised
+public class PlayerReward : MonoBehaviour, IRewardRaised, IToResultScreen
 {
     [SerializeField] private PlayerModelConfiguration[] playerModelConfigurations;
     [SerializeField] private PlayerStateStorage playerStateStorage;
@@ -74,6 +74,8 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
 
         if (instantly == false)
         {
+            EventBus.RaiseEvent<IPlaySound>(t => t.Play(SoundPlayType.LevelUp));
+            EventBus.RaiseEvent<ISpawnEffect>(t => t.SpawnEffect(transform, EffectType.LevelUp, true));
             playerRotateObject.DOLocalRotate(new Vector3(0, 360, 0), 0.6f, RotateMode.FastBeyond360).SetRelative(true)
                 .SetEase(Ease.Linear).OnComplete(() => playerRotateObject.localRotation = Quaternion.identity);
         }
@@ -97,8 +99,12 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         {
             case RewardType.Money:
                 currentValue += value;
+                EventBus.RaiseEvent<ISpawnEffect>(t => t.SpawnEffect(transform, EffectType.TakeMoney, true));
+                EventBus.RaiseEvent<IPlaySound>(t => t.Play(SoundPlayType.Coin));
                 break;
             case RewardType.Bottle:
+                EventBus.RaiseEvent<ISpawnEffect>(t => t.SpawnEffect(transform, EffectType.TakeBottle, true));
+                EventBus.RaiseEvent<IPlaySound>(t => t.Play(SoundPlayType.Bottle));
                 currentValue -= value;
                 break;
         }
@@ -111,5 +117,13 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         }
 
         UpdateCurrentStateConfiguration();
+    }
+
+    public void Finish(bool isWin)
+    {
+        if (isWin == false)
+        {
+            SetCanvasStatus(false);
+        }
     }
 }

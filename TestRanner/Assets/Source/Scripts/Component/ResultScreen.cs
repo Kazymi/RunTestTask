@@ -44,6 +44,7 @@ public class ResultScreen : MonoBehaviour, IToResultScreen
 
     public void Finish(bool isWin)
     {
+        EventBus.RaiseEvent<IPlaySound>(t => t.Play(isWin ? SoundPlayType.Win : SoundPlayType.Lose));
         resultCanvas.enabled = true;
         var floatDuration = 0.7f;
         buttonText.text = isWin ? "Next level" : "Try again";
