@@ -9160,6 +9160,7 @@ GameObject:
   - component: {fileID: 431707775}
   - component: {fileID: 431707774}
   - component: {fileID: 431707773}
+  - component: {fileID: 431707776}
   m_Layer: 0
   m_Name: Door_level_2
   m_TagString: Untagged
@@ -9257,6 +9258,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431707771}
   m_Mesh: {fileID: 4300000, guid: d2e598d658eefd742b813ef831c12b8f, type: 2}
+--- !u!114 &431707776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431707771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f02a34028a1ea42b525e3f88933d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPlayType: 7
 --- !u!1 &432436540
 GameObject:
   m_ObjectHideFlags: 0
@@ -23829,6 +23843,18 @@ MonoBehaviour:
   - <AudioClip>k__BackingField: {fileID: 8300000, guid: 3d8fbacb25eefd54a86adddc5b7927bf,
       type: 3}
     <SoundType>k__BackingField: 4
+  - <AudioClip>k__BackingField: {fileID: 8300000, guid: d7e371ea7154ddf4480c5b530412d97a,
+      type: 3}
+    <SoundType>k__BackingField: 5
+  - <AudioClip>k__BackingField: {fileID: 8300000, guid: f02b2b6b4c4e25c4dbf91399e9ce260a,
+      type: 3}
+    <SoundType>k__BackingField: 6
+  - <AudioClip>k__BackingField: {fileID: 8300000, guid: 5082b1255096a3341ae3e67ed18912b1,
+      type: 3}
+    <SoundType>k__BackingField: 7
+  - <AudioClip>k__BackingField: {fileID: 8300000, guid: 8f649d3b53cbca0458fae09ff02efbc5,
+      type: 3}
+    <SoundType>k__BackingField: 8
   audioSource: {fileID: 1265056778}
 --- !u!4 &1265056780
 Transform:
@@ -33635,6 +33661,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1804115481}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ea6bf29853fc0d542a24424281918ca1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1804115484}
   m_SourcePrefab: {fileID: 100100000, guid: ea6bf29853fc0d542a24424281918ca1, type: 3}
 --- !u!4 &1754213323 stripped
 Transform:
@@ -33722,6 +33752,7 @@ GameObject:
   - component: {fileID: 1758645239}
   - component: {fileID: 1758645238}
   - component: {fileID: 1758645241}
+  - component: {fileID: 1758645242}
   m_Layer: 0
   m_Name: Door_level_1
   m_TagString: Untagged
@@ -33819,6 +33850,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1758645242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758645237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f02a34028a1ea42b525e3f88933d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPlayType: 6
 --- !u!1 &1758765330
 GameObject:
   m_ObjectHideFlags: 0
@@ -34283,6 +34327,7 @@ GameObject:
   - component: {fileID: 1780557763}
   - component: {fileID: 1780557762}
   - component: {fileID: 1780557761}
+  - component: {fileID: 1780557764}
   m_Layer: 0
   m_Name: Door_level_3
   m_TagString: Untagged
@@ -34380,6 +34425,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780557759}
   m_Mesh: {fileID: 4300000, guid: d2e598d658eefd742b813ef831c12b8f, type: 2}
+--- !u!114 &1780557764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780557759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f02a34028a1ea42b525e3f88933d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPlayType: 8
 --- !u!4 &1782628384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 661121270000533807, guid: fbde4c31430a23446ba08cb330e80b3b,
@@ -34927,6 +34985,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.54807866, y: 1.8843911, z: 1}
   m_Center: {x: 0.010939658, y: 0.44219553, z: 0}
+--- !u!114 &1804115484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804115479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f02a34028a1ea42b525e3f88933d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPlayType: 5
 --- !u!1001 &1804358984
 PrefabInstance:
   m_ObjectHideFlags: 0
