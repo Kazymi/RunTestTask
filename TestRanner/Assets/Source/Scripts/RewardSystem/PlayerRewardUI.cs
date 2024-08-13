@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [Serializable]
 public class PlayerRewardUI
 {
+    [SerializeField] private Canvas canvas;
     [SerializeField] private TMP_Text description;
     [SerializeField] private Image slider;
 
@@ -18,6 +19,11 @@ public class PlayerRewardUI
         slider.DOKill();
         slider.DOColor(color, ColorTimer);
         slider.DOFillAmount(value, ValueTimer);
+    }
+
+    public void SetCanvasStatus(bool value)
+    {
+        canvas.enabled = value;
     }
 
     public void SetAllValue(float valueSlider, string description, Color color)

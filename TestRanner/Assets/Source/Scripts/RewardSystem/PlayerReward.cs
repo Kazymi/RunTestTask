@@ -14,6 +14,8 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
     private PlayerStateMachine stateMachine;
     private PlayerStateConfiguration currentStateConfiguration;
 
+    public float CurrentValue => currentValue;
+
     private void OnEnable()
     {
         EventBus.Subscribe(this);
@@ -35,6 +37,11 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         playerRewardUi.SetAllValue(currentValue, currentPlayerStateConfig.Description, currentPlayerStateConfig.Color);
         currentStateConfiguration = currentPlayerStateConfig;
         UpdateModelAndAnimation(true);
+    }
+
+    public void SetCanvasStatus(bool value)
+    {
+        playerRewardUi.SetCanvasStatus(value);
     }
 
     private void UpdateCurrentStateConfiguration()
@@ -99,8 +106,10 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         if (currentValue > 1) currentValue = 1;
         if (currentValue < 0)
         {
+            EventBus.RaiseEvent<IToResultScreen>(t => t.Finish(false));
             currentValue = 0;
         }
+
         UpdateCurrentStateConfiguration();
     }
 }

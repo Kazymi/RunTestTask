@@ -3,4 +3,6 @@
     Idle,
     Walk,
     MoveFloat,
+    Win,
+    Lose,
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3354cad99ca494b865110bc27b454c, type: 3}
   m_Name: PlayerConfiguration
   m_EditorClassIdentifier: 
-  <SpeedForward>k__BackingField: 2
+  <SpeedForward>k__BackingField: 3
   <SpeedStrafe>k__BackingField: 4
-  <StrafeRotateSpeed>k__BackingField: 34
+  <StrafeRotateSpeed>k__BackingField: 45
   <RotateStrafe>k__BackingField: {x: 0, y: 23, z: 0}
