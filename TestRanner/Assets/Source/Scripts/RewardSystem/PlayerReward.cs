@@ -14,8 +14,6 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
     private PlayerStateMachine stateMachine;
     private PlayerStateConfiguration currentStateConfiguration;
 
-    private const float constAddValue = 0.05f;
-
     private void OnEnable()
     {
         EventBus.Subscribe(this);
@@ -37,21 +35,6 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         playerRewardUi.SetAllValue(currentValue, currentPlayerStateConfig.Description, currentPlayerStateConfig.Color);
         currentStateConfiguration = currentPlayerStateConfig;
         UpdateModelAndAnimation(true);
-    }
-
-    public void RewardRaised(RewardType rewardType)
-    {
-        switch (rewardType)
-        {
-            case RewardType.Money:
-                currentValue += constAddValue;
-                break;
-            case RewardType.Bottle:
-                currentValue -= constAddValue;
-                break;
-        }
-
-        UpdateCurrentStateConfiguration();
     }
 
     private void UpdateCurrentStateConfiguration()
@@ -99,5 +82,25 @@ public class PlayerReward : MonoBehaviour, IRewardRaised
         }
 
         return returnValue.PlayerStateConfiguration;
+    }
+
+    public void RewardRaised(RewardType rewardType, float value)
+    {
+        switch (rewardType)
+        {
+            case RewardType.Money:
+                currentValue += value;
+                break;
+            case RewardType.Bottle:
+                currentValue -= value;
+                break;
+        }
+
+        if (currentValue > 1) currentValue = 1;
+        if (currentValue < 0)
+        {
+            currentValue = 0;
+        }
+        UpdateCurrentStateConfiguration();
     }
 }

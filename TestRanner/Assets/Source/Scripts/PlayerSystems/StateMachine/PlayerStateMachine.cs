@@ -9,7 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private PlayerConfiguration playerConfiguration;
     [SerializeField] private PlayerTransformRepository playerTransformRepository;
     [SerializeField] private Animator animator;
-   
+
     private InputHelper inputHelper;
     private global::StateMachine.StateMachine stateMachine;
 

@@ -6,6 +6,6 @@ namespace EventBusSystem
 
     public interface IRewardRaised : IGlobalSubscriber
     {
-        void RewardRaised(RewardType rewardType);
+        void RewardRaised(RewardType rewardType,float value);
     }
 }

@@ -8,6 +8,8 @@ public class PlayerMoveState : State
     private readonly PlayerConfiguration _playerConfiguration;
     private readonly PlayerTransformRepository _playerTransformRepository;
 
+    private const float XInterval = 2.1f;
+
     public PlayerMoveState(PlayerAnimationController playerAnimationController, InputHelper inputHelper,
         PlayerConfiguration playerConfiguration, PlayerTransformRepository playerTransformRepository)
     {
@@ -30,6 +32,7 @@ public class PlayerMoveState : State
     public override void Tick()
     {
         Move();
+        Strafe();
         Rotate();
     }
 
@@ -48,11 +51,18 @@ public class PlayerMoveState : State
             _playerConfiguration.StrafeRotateSpeed * Time.deltaTime);
     }
 
+    private void Strafe()
+    {
+        var endValue = _playerTransformRepository.PlayerMain.localPosition +
+                       new Vector3(_inputHelper.Horizontal, 0, 0) * _playerConfiguration.SpeedStrafe * Time.deltaTime;
+        var fixLocalX = Mathf.Clamp(endValue.x, -XInterval, XInterval);
+        _playerTransformRepository.PlayerMain.localPosition = new Vector3(fixLocalX, endValue.y, endValue.z);
+    }
+
     private void Move()
     {
-        var moveDirection = _playerTransformRepository.PlayerMain.forward * _playerConfiguration.SpeedForward;
-        moveDirection += new Vector3(_inputHelper.Horizontal, 0, 0) * _playerConfiguration.SpeedStrafe;
-        moveDirection *= Time.deltaTime;
-        _playerTransformRepository.PlayerMain.position += moveDirection;
+        var moveDirectionMain = _playerTransformRepository.PlayerMain.forward * _playerConfiguration.SpeedForward;
+        moveDirectionMain *= Time.deltaTime;
+        _playerTransformRepository.PlayerMain.transform.position += moveDirectionMain;
     }
 }
